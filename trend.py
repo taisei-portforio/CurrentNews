@@ -1,5 +1,6 @@
 import urllib.request
 from bs4 import BeautifulSoup
+import re
 
 url = 'https://search.yahoo.co.jp/realtime'
 ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) '\
@@ -17,6 +18,7 @@ def gettrend(word):
     for trend in trends:
         trlist.append(trend.find('a').contents[2].string)
         trlist.append("https://search.yahoo.co.jp" + trend.find('a').attrs['href'])    
+    trlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(trlist))
     return trlist
 
     # print(trend.find('a').contents[2].string)

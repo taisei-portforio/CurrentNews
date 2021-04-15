@@ -1,5 +1,6 @@
 import urllib.request
 from bs4 import BeautifulSoup
+import re
 
 url = 'https://news.yahoo.co.jp/topics'
 ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) '\
@@ -19,5 +20,5 @@ def getit(word):
         itlist.append(topic.find('a').contents[0].string)
         itlist.append(topic.find('a').attrs['href'])
         
-    # itlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(itlist))    
+    itlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(itlist))    
     return itlist

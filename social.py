@@ -1,5 +1,6 @@
 import urllib.request
 from bs4 import BeautifulSoup
+import re
 
 url = 'https://news.yahoo.co.jp/topics'
 ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) '\
@@ -18,5 +19,5 @@ def getsocial(word):
     for topic in topics:
         solist.append(topic.find('a').contents[0].string)
         solist.append(topic.find('a').attrs['href']) 
-    # solist = re.sub(r'(([^,]*,){1})', r'\1\n', str(solist))    
+    solist = re.sub(r'(([^,]*,){1})', r'\1\n', str(solist))    
     return solist

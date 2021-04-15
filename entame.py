@@ -1,5 +1,6 @@
 import urllib.request
 from bs4 import BeautifulSoup
+import re
 
 url = 'https://news.yahoo.co.jp/topics'
 ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) '\
@@ -19,5 +20,5 @@ def getentame(word):
         enlist.append(topic.find('a').contents[0].string)
         enlist.append(topic.find('a').attrs['href'])
         
-    # enlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(enlist))    
+    enlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(enlist))    
     return enlist
