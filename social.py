@@ -17,7 +17,6 @@ def getsocial(word):
 
     for topic in topics:
         solist.append(topic.find('a').contents[0].string)
-        solist.append(topic.find('a').attrs['href'])
-        
-    solist = re.sub(r'(([^,]*,){1})', r'\1\n', str(solist))    
+        solist.append(topic.find('a').attrs['href']) 
+    # solist = re.sub(r'(([^,]*,){1})', r'\1\n', str(solist))    
     return solist

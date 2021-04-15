@@ -19,5 +19,5 @@ def getkokusai(word):
         kslist.append(topic.find('a').contents[0].string)
         kslist.append(topic.find('a').attrs['href'])
     
-    kslist = re.sub(r'(([^,]*,){1})', r'\1\n', str(kslist))    
+    # kslist = re.sub(r'(([^,]*,){1})', r'\1\n', str(kslist))    
     return kslist

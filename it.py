@@ -19,5 +19,5 @@ def getit(word):
         itlist.append(topic.find('a').contents[0].string)
         itlist.append(topic.find('a').attrs['href'])
         
-    itlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(itlist))    
+    # itlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(itlist))    
     return itlist

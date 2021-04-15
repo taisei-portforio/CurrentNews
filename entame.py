@@ -19,5 +19,5 @@ def getentame(word):
         enlist.append(topic.find('a').contents[0].string)
         enlist.append(topic.find('a').attrs['href'])
         
-    enlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(enlist))    
+    # enlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(enlist))    
     return enlist

@@ -19,5 +19,5 @@ def getkeizai(word):
         kelist.append(topic.find('a').contents[0].string)
         kelist.append(topic.find('a').attrs['href'])
         
-    kelist = re.sub(r'(([^,]*,){1})', r'\1\n', str(kelist))    
+    # kelist = re.sub(r'(([^,]*,){1})', r'\1\n', str(kelist))    
     return kelist

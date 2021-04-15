@@ -17,7 +17,6 @@ def getscience(word):
 
     for topic in topics:
         sclist.append(topic.find('a').contents[0].string)
-        sclist.append(topic.find('a').attrs['href'])
-        
-    sclist = re.sub(r'(([^,]*,){1})', r'\1\n', str(sclist))    
+        sclist.append(topic.find('a').attrs['href'])  
+    # sclist = re.sub(r'(([^,]*,){1})', r'\1\n', str(sclist))    
     return sclist

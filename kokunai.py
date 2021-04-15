@@ -20,7 +20,7 @@ def getkokunai(word):
         knlist.append(topic.find('a').attrs['href'])
         
   
-    knlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(knlist))    
+    # knlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(knlist))    
     return knlist
 
     # print(trend.find('a').contents[2].string)

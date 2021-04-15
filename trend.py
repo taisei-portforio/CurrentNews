@@ -16,9 +16,7 @@ def gettrend(word):
 
     for trend in trends:
         trlist.append(trend.find('a').contents[2].string)
-        trlist.append("https://search.yahoo.co.jp" + trend.find('a').attrs['href'])
-        
-    trlist = re.sub(r'(([^,]*,){1})', r'\1\n', str(trlist))    
+        trlist.append("https://search.yahoo.co.jp" + trend.find('a').attrs['href'])    
     return trlist
 
     # print(trend.find('a').contents[2].string)

@@ -18,6 +18,6 @@ def getsports(word):
     for topic in topics:
         splist.append(topic.find('a').contents[0].string)
         splist.append(topic.find('a').attrs['href'])
-
-    splist = re.sub(r'(([^,]*,){1})', r'\1\n', str(splist))    
     return splist
+
+    # splist = re.sub(r'(([^,]*,){1})', r'\1\n', str(splist))
