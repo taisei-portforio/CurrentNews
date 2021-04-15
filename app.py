@@ -52,62 +52,62 @@ def callback():
 def handle_text_message(event):
     word = event.message.text
     if word == "トレンド":
-        trresult = gettrend(word)
+        trresult = tr.gettrend(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=trresult)
         )
     elif word == "国内":
-        knresult = getkokunai(word)
+        knresult = kn.getkokunai(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=knresult)
         )
 
     elif word == "国際":
-        ksresult = getkokusai(word)
+        ksresult = ks.getkokusai(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=ksresult)
         )
 
     elif word == "経済":
-        keresult = getkeizai(word)
+        keresult = ke.getkeizai(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=keresult)
         )
 
     elif word == "エンタメ":
-        enresult = getentame(word)
+        enresult = en.getentame(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=enresult)
         )
     
     elif word == "スポーツ":
-        spresult = getsports(word)
+        spresult = sp.getsports(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=spresult)
         )
 
     elif word == "it":
-        itresult = getit(word)
+        itresult = it.getit(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=itresult)
         )
     
     elif word == "科学":
-        scresult = getscience(word)
+        scresult = sc.getscience(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=scresult)
         )
     
     elif word == "地域":
-        soresult = getsocial(word)
+        soresult = so.getsocial(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=soresult)
