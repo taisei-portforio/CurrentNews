@@ -48,7 +48,7 @@ def callback():
 
     return 'ok'
 
-@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, message=TextSendMessage)
 def handle_text_message(event):
     word = event.message.text
     if word == "トレンド":
