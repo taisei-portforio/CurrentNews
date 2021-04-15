@@ -1,7 +1,7 @@
 from flask import Flask, request, abort
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
-from linebot.models import (MessageEvent, TextSendMessage, ImageMessage, ImageSendMessage)
+from linebot.models import (MessageEvent, TextSendMessage, TextMessage)
 import os
 import sys
 import json
@@ -48,7 +48,7 @@ def callback():
 
     return 'ok'
 
-@handler.add(MessageEvent, message=TextSendMessage)
+@handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     word = event.message.text
     if word == "トレンド":
