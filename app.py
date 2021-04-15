@@ -52,62 +52,62 @@ def callback():
 def handle_text_message(event):
     word = event.message.text
     if word == "トレンド":
-        trresult = tr.gettrend(word)
+        trresult = gettrend(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=trresult)
         )
     elif word == "国内":
-        knresult = kn.getkokunai(word)
+        knresult = getkokunai(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=knresult)
         )
 
     elif word == "国際":
-        ksresult = ks.getkokusai(word)
+        ksresult = getkokusai(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=ksresult)
         )
 
     elif word == "経済":
-        keresult = ke.getkeizai(word)
+        keresult = getkeizai(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=keresult)
         )
 
     elif word == "エンタメ":
-        enresult = en.getentame(word)
+        enresult = getentame(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=enresult)
         )
     
     elif word == "スポーツ":
-        spresult = sp.getsports(word)
+        spresult = getsports(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=spresult)
         )
 
     elif word == "it":
-        itresult = it.getit(word)
+        itresult = getit(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=itresult)
         )
     
     elif word == "科学":
-        scresult = sc.getscience(word)
+        scresult = getscience(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=scresult)
         )
     
     elif word == "地域":
-        soresult = so.getsocial(word)
+        soresult = getsocial(word)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=soresult)
@@ -122,3 +122,5 @@ def handle_text_message(event):
 if __name__ == "__main__":#正しいファイル拡張子で実行されているか識別
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
+
+    
