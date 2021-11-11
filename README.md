@@ -23,7 +23,7 @@
  
 "hoge"が何かを簡潔に紹介する
 
-<iframe src="https://giphy.com/embed/jjjIFGBexXYkEVyiw6" width="222" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/jjjIFGBexXYkEVyiw6">via GIPHY</a></p>
+
  
 # DEMO
  
