@@ -24,6 +24,8 @@ CurrentNewsは
 
 ③上記以外のワードを入力した場合、CurrentNews側も同じワードを返してくれて、会話をしているような感覚になれる。
 
+![Videotogif (3)](https://user-images.githubusercontent.com/60774625/141267995-b41c9b95-2807-4b5a-89bd-742a45598b0d.gif)
+
 の3通りの使い方ができます。
 
  
