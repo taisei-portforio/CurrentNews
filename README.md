@@ -1,80 +1,42 @@
-# trendaibot
-トレンドやニュースをスクレイピングして、lineから入力された文言に合わせて結果を返すというbotです。
-
-# 内容
-「トレンド」と打つと現在のyahooトレンド上位を閲覧することができます。
-トレンドの画像
-また、国内、国際、経済、エンタメ、スポーツ、it、科学、地域と打つと、それぞれのトピックに合わせたニュースを閲覧することができます。
-<img src="img/bot1.PNG">
-<hr>
-それ以外の文言はすべてオウム返しするように設定しています。
-<img src="img/bot2.PNG">
-
-
-
-
-それぞれのファイルの説明です。
-
-
-
 # CurrentNews
- 
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
- 
-"hoge"が何かを簡潔に紹介する
+CurrentNewsとはリアルタイムのニュースをLINEを通じて教えてくれる機能（BOT）です。
 
 
+
+現在知りたいトピックやトレンド、カテゴリごとの最新のトップニュースを瞬時に教えてくれます。
+
+
+
+# DEMO 
+
+具体的なCurrentNewsの使い方の説明です。
+
+CurrentNewsは
+
+①「トレンド」と入力することで、入力した時点でのトレンドランキングを把握することができ、そこからトレンドワードに関連したYahooニュースを閲覧することができる。
+
+![Videotogif (1)](https://user-images.githubusercontent.com/60774625/141259562-716b02e6-a688-483d-b321-38db9e3deacb.gif)
+
+②「国内」「国際」「経済」「エンタメ」「スポーツ」「it」「科学」「地域」のいずれかを入力することにより、トピックごとのニュースを把握することができ、そこから入力したワードに関連したYahooニュースを閲覧することができる。
+
+![Videotogif (2)](https://user-images.githubusercontent.com/60774625/141264034-a99a8325-de58-42cb-bb70-619df90704d9.gif)
+
+
+③上記以外のワードを入力した場合、CurrentNews側も同じワードを返してくれて、会話をしているような感覚になれる。
+
+の3通りの使い方ができます。
+
  
-# DEMO
+# Explanation
+ githubに公開しているファイルの説明です。
  
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+ ○app.py…このアプリの基幹となっているファイルです。トピックごとのファイルをここに継承し、最終的な処理を行っています。詳しい内容はファイル内のコメントアウトに記載しています。
  
-# Features
+ ○trend.py, it.py…等 …トピックごとでファイルを分けています。trend.pyに詳しい内容は記載しています。
  
-"hoge"のセールスポイントや差別化などを説明する
- 
-# Requirement
- 
-"hoge"を動かすのに必要なライブラリなどを列挙する
- 
-* huga 3.5.2
-* hogehuga 1.0.2
- 
-# Installation
- 
-Requirementで列挙したライブラリなどのインストール方法を説明する
- 
-```bash
-pip install huga_package
-```
- 
-# Usage
- 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
- 
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
+ ○Procfile, requirement.txt, runtime.txt… Herokuにデプロイする際に必要なファイルです。
  
 # Note
+ ○時間をおいてから使用した際、応答が20秒くらいかかることがあります。
  
-注意点などがあれば書く
- 
-# Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
- 
-# License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
+ ○画像やスタンプには対応していません。
