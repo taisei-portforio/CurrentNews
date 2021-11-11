@@ -2,11 +2,11 @@ from flask import Flask, request, abort
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import (MessageEvent, TextSendMessage, TextMessage)
-import os
-import sys
+import os # ファイル管理、OS処理を行うモジュール
+import sys # システム情報を取得、システムに関する設定を操作が入ってるモジュール
 import json
 import urllib.request
-import trend as tr
+import trend as tr # 各ファイルから継承
 import kokunai as kn
 import kokusai as ks
 import keizai as ke
@@ -16,12 +16,12 @@ import it
 import science as sc
 import social as so
 
-app = Flask(__name__)
+app = Flask(__name__) # インスタンス作成
 
-channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
+channel_secret = os.getenv('LINE_CHANNEL_SECRET', None) # os.getenvでLineで設定されているアクセストークン、チャネルシークレットを取得
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
 
-if channel_secret is None:
+if channel_secret is None: # 上記の環境変数が返されなかった場合、エラーを返す。
     print('Specify LINE_CHANNEL_SECRET as environment variable.')
     sys.exit(1)
 if channel_access_token is None:
@@ -32,15 +32,15 @@ line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
 
-@app.route("/callback", methods=['POST'])
+@app.route("/callback", methods=['POST']) # リクエストチェック
 def callback():
-    signature = request.headers['X-Line-Signature']
+    signature = request.headers['X-Line-Signature'] # リクエストがLineから送られたのを確認するために、x-line-signatureに含まれている署名を検証。
 
-    # get request body as text
+    # 取得
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
 
-    # parse webhook body
+    # 検証。問題なければhandleに定義されている関数を呼び出す
     try:
         events = handler.handle(body, signature)
     except InvalidSignatureError:
@@ -51,7 +51,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     word = event.message.text
-    if word == "トレンド":
+    if word == "トレンド": # 各ファイルから継承。それぞれに対応したトピックを返す。
         trresult = tr.gettrend(word)
         line_bot_api.reply_message(
             event.reply_token,
@@ -113,14 +113,14 @@ def handle_text_message(event):
             TextSendMessage(text=soresult)
         )
 
-    else:
+    else: # 上記以外のワードの場合、オウム返しにする。
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=word)
         )
 
 if __name__ == "__main__":#正しいファイル拡張子で実行されているか識別
-    port = int(os.getenv("PORT", 5000))
+    port = int(os.getenv("PORT", 5000)) # ポート番号の設定
     app.run(host="0.0.0.0", port=port, debug=True)
 
     
