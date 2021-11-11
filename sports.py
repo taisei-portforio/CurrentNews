@@ -10,7 +10,7 @@ ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) '\
 def getsports(word):
     req = urllib.request.Request(url, headers={'User-Agent': ua})
     html = urllib.request.urlopen(req)
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "html.parser")
     
     topicsindex = soup.find_all('div', attrs={'class':'sc-jqCOkK gRKalU'})[4]
     topics = topicsindex.find_all("li")

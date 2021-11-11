@@ -9,7 +9,7 @@ ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) '\
 def gettrend(word):
     req = urllib.request.Request(url, headers={'User-Agent': ua}) #ua偽装
     html = urllib.request.urlopen(req) #偽装したreqでurlopenする
-    soup = BeautifulSoup(html, "lxml") #beautifulSoupオブジェクトの作成
+    soup = BeautifulSoup(html, "html.parser") #beautifulSoupオブジェクトの作成
 
     trendsindex = soup.find('section', attrs={'class':'Trend_container__2vkJ-'}) # サイトの目的の部分を抽出
     trends = trendsindex.find_all("li") #sectionタグの中のliタグを全て取得
