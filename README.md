@@ -1,5 +1,5 @@
 # CurrentNews
-CurrentNewsとはリアルタイムのニュースをLINEを通じて教えてくれる機能（BOT）です。
+CurrentNewsとはトピック内で最も検索されているニュースや現在のトレンドを教えてくれる、LINEのチャットボットです。
 
 
 
